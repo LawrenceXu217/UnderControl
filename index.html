@@ -469,6 +469,122 @@
             }
         }
 
+        /* Game Systems Section */
+        .system-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .system-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--gray-dark) 100%);
+            border: 2px solid var(--red-dark);
+            border-radius: 12px;
+            padding: 40px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .system-card:hover {
+            border-color: var(--red-primary);
+            box-shadow: 0 0 30px var(--red-glow);
+        }
+
+        .system-card.reverse {
+            direction: rtl;
+        }
+
+        .system-card.reverse > * {
+            direction: ltr;
+        }
+
+        .system-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .system-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            color: var(--red-primary);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px var(--red-glow);
+        }
+
+        .system-description {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--gray-light);
+            margin-bottom: 20px;
+        }
+
+        .image-placeholder {
+            background: var(--bg-dark);
+            border: 2px dashed var(--red-dark);
+            border-radius: 8px;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.1), transparent);
+            animation: scan 3s infinite;
+        }
+
+        @keyframes scan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .image-placeholder:hover {
+            border-color: var(--red-primary);
+            background: var(--gray-dark);
+        }
+
+        .placeholder-icon {
+            font-size: 64px;
+            opacity: 0.3;
+            margin-bottom: 16px;
+        }
+
+        .placeholder-text {
+            color: var(--gray-mid);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        @media (max-width: 1024px) {
+            .system-card {
+                grid-template-columns: 1fr;
+            }
+
+            .system-card.reverse {
+                direction: ltr;
+            }
+        }
+
         /* Smooth scroll */
         html {
             scroll-behavior: smooth;
@@ -486,7 +602,7 @@
             A game about the systems that keep harm hidden. Step into the role of a fast fashion executive 
             and discover how success in one system can mean destruction everywhere else.
         </p>
-        <a href="#game-loop" class="cta-button">Explore the Loop</a>
+        <a href="#game-systems" class="cta-button">Explore the Systems</a>
     </section>
 
     <!-- Game Loop Section -->
@@ -552,6 +668,97 @@
                     The loop reinforces the idea that efficiency and control are rewarded, while accountability is 
                     consistently delayed.
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Systems Section -->
+    <section id="game-systems">
+        <h2 class="section-title">Game Systems</h2>
+        <p class="section-subtitle">The Mechanics of Control</p>
+
+        <!-- System 1: Executive Dashboard -->
+        <div class="system-container">
+            <div class="system-card">
+                <!-- <div class="system-icon">📊</div> -->
+                <h3 class="system-title">Executive Dashboard / Lobby</h3>
+                <p class="system-description">
+                    This is where the player spends most of their time. It acts as the main hub, showing the overall 
+                    state of the company, including profit, public perception, worker wellbeing, and environmental damage. 
+                    New emails, alerts, and reports constantly appear here, creating a sense of urgency. From this screen, 
+                    players decide which problem to deal with next, reinforcing the feeling that there is never enough 
+                    time or attention to go around.
+                </p>
+                <div class="image-placeholder">
+                    <div class="placeholder-icon">🖼️</div>
+                    <p class="placeholder-text">Dashboard Screenshot Coming Soon</p>
+                </div>
+            </div>
+
+            <!-- System 2: Crisis Screen -->
+            <div class="system-card reverse">
+                <!-- <div class="system-icon">⚠️</div> -->
+                <h3 class="system-title">Crisis / Encounter Screen</h3>
+                <p class="system-description">
+                    This is where things get tense. Urgent situations play out here, such as a journalist showing up 
+                    unexpectedly, an inspection warning, or a whistleblower threatening to speak out. These moments are 
+                    often time-pressured and force players to make fast decisions about what to reveal, hide, or manipulate. 
+                    Success comes from containing the situation before it spirals into something bigger.
+                </p>
+                <div class="image-placeholder">
+                    <div class="placeholder-icon">🖼️</div>
+                    <p class="placeholder-text">Crisis Screen Screenshot Coming Soon</p>
+                </div>
+            </div>
+
+            <!-- System 3: Supply Chain -->
+            <div class="system-card">
+                <!-- <div class="system-icon">🏭</div> -->
+                <h3 class="system-title">Supply Chain Management Screen</h3>
+                <p class="system-description">
+                    This screen focuses on the long-term side of the job. Players adjust labor costs, materials, factory 
+                    locations, and production timelines to keep profits high and deadlines met. While these choices feel 
+                    strategic and efficient, they quietly increase long-term harm and make future problems more severe.
+                </p>
+                <div class="image-placeholder">
+                    <div class="placeholder-icon">🖼️</div>
+                    <p class="placeholder-text">Supply Chain Screenshot Coming Soon</p>
+                </div>
+            </div>
+
+            <!-- System 4: Cover-Up Sequences -->
+            <div class="system-card reverse">
+                <!-- <div class="system-icon">🕵️</div> -->
+                <h3 class="system-title">Cover-Up / Stealth Sequences</h3>
+                <p class="system-description">
+                    These are short, hands-on moments where players actively hide evidence. Tasks might include deleting 
+                    emails, editing worker records, staging factory floors, relocating workers, or rebranding harmful 
+                    practices. These sequences are chaotic and stressful, highlighting how much work goes into keeping 
+                    problems out of sight.
+                </p>
+                <div class="image-placeholder">
+                    <div class="placeholder-icon">🖼️</div>
+                    <p class="placeholder-text">Cover-Up Sequence Screenshot Coming Soon</p>
+                </div>
+            </div>
+
+            <!-- System 5: Narrative Feedback -->
+            <div class="system-card">
+                <!-- <div class="system-icon">📰</div> -->
+                <h3 class="system-title">Narrative Feedback Layer</h3>
+                <p class="system-description">
+                    The game speaks to the player through a steady stream of news headlines, internal messages, worker 
+                    complaints, and environmental reports. At first, these updates feel distant and manageable, just 
+                    background noise to a busy job. Over time, they begin to tell a different story. Small decisions 
+                    resurface as larger consequences, and problems that once seemed "handled" return in more visible 
+                    and damaging ways. Without directly blaming the player, the narrative quietly reveals how their 
+                    choices ripple outward, showing harm that continues to grow even as the company appears to stay 
+                    under control.
+                </p>
+                <div class="image-placeholder">
+                    <div class="placeholder-icon">🖼️</div>
+                    <p class="placeholder-text">Narrative Feedback Screenshot Coming Soon</p>
+                </div>
             </div>
         </div>
     </section>
